@@ -550,12 +550,13 @@ async def upload(bot: Client, m: Message):
     await input6.delete(True)
     await editable.delete()
 
-    #thumb = input6.text
-    #if thumb.startswith("http://") or thumb.startswith("https://"):
-        #getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
-        #thumb = "thumb.jpg"
-    else:
-        thumb == "no"
+thumb = raw_text6
+
+if thumb.startswith("http://") or thumb.startswith("https://"):
+    getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
+    thumb = "thumb.jpg"
+else:
+    thumb = "no"
     failed_count =0
     if len(links) == 1:
         count = 1
@@ -839,5 +840,3 @@ async def upload(bot: Client, m: Message):
     await m.reply_text(f"<pre><code>📥𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆 ➤『{CR}』</code></pre>")          
 
 bot.run()
-if __name__ == "__main__":
-    asyncio.run(main())
